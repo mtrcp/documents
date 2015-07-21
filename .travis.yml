@@ -1,12 +1,12 @@
-sudo: true 
-2 language: ruby 
-3 rvm: 
-4 - 2.2.2 
-5 before_install: 
-6 - sudo apt-get update -qq 
-7 - sudo apt-get install python-dev python-pip python-lxml libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0 
-8   libffi-dev shared-mime-info 
-9 - sudo pip install WeasyPrint 
-10 script: 
-11 - make 
-12 - make deploy 
+sudo: true
+language: ruby
+rvm:
+- 2.2.2
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install python-dev python-pip python-lxml libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0
+  libffi-dev shared-mime-info
+- sudo pip install WeasyPrint
+script:
+- make
+- make deploy
