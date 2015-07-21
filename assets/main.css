@@ -8,7 +8,14 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-/* Portions Copyright (c) 2015, Amazon Technologies, Inc. */
+/* 
+Portions Copyright (c) 2015 Amazon.com, Inc. or its affiliates
+
+These portions of the work are licensed under the Creative Commons 
+Attribution 4.0 International License. To view a copy of this license, 
+visit http://creativecommons.org/licenses/by/4.0/ or send a letter to 
+Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+*/
 
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -108,108 +115,99 @@ textarea {
 /* This section copyright Amazon.com, Inc. or its affiliates. */
 
 @page PageLayout {
-  margin-left: 1in;
-  margin-right: 1in;
+  margin-left: 2in;
+  margin-right: 2in;
 }
 
 @page {
   size: letter portrait; 
-  margin-left: 1in;
-  margin-right: 1in;
+  margin-left: 2in;
+  margin-right: 2in;
 }
 
 @page :left { 
-    font-family: "Segoe UI", sans-serif;
-    font-size: 8pt;
+	font-family: "Crimson", serif;
+	font-size: 8pt;
 }
 @page :right { 
-    font-family: "Segoe UI", sans-serif;
-    font-size: 8pt;
+	font-family: "Crimson", serif;
+	font-size: 8pt;
 }
 
-
-/* Segoe UI Regular */
 @font-face {
-  font-family: "Segoe UI";
-  src: url("segoeui.ttf");
-  font-weight: normal; /* Regular (400) */
+  font-family: "Oxygen Mono";
+  src: url("OxygenMono-Regular.otf");
+  font-weight: normal;
   font-style: normal;
 }
 
-/* Segoe UI Italic */
 @font-face {
-  font-family: "Segoe UI";
-  src: url("segoeuii.ttf");
-  font-weight: normal; /* Regular (400) */
+  font-family: "Source Sans Pro";
+  src: url("SourceSansPro-Semibold.otf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Crimson";
+  src: url("Crimson-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Crimson";
+  src: url("Crimson-BoldItalic.otf");
+  font-weight: bold;
   font-style: italic;
 }
 
-
-/* Segoe UI Semilight */
 @font-face {
-  font-family: "Segoe UI";
-  src: url("SEGOEUISL.TTF");
-  font-weight: 300; /* Semilight */
-  font-style: normal;
-}
-
-/* Segoe UI Light */
-@font-face {
-  font-family: "Segoe UI";
-  src: url("segoeuil.ttf");
-  font-weight: 200; /* Light */
-  font-style: normal;
-}
-
-/* Segoe UI Semibold */
-@font-face {
-  font-family: "Segoe UI";
-  src: url("seguisb.ttf");
-  font-weight: 600; /* Semibold */
-  font-style: normal;
-}
-
-
-/* Segoe UI Bold */
-@font-face {
-  font-family: "Segoe UI";
-  src: url("segoeuib.ttf");
-  font-weight: bold; /* (700) */
-  font-style: normal;
-}
-
-/* Segoe UI Bold Italic */
-@font-face {
-  font-family: "Segoe UI";
-  src: url("segoeuiz.ttf");
-  font-weight: bold; /* (700) */
+  font-family: "Crimson";
+  src: url("Crimson-Italic.otf");
+  font-weight: normal;
   font-style: italic;
 }
 
+@font-face {
+  font-family: "Crimson";
+  src: url("Crimson-Roman.otf");
+  font-weight: normal;
+  font-style: normal;  
+}
 
+@font-face {
+  font-family: "Crimson";
+  src: url("Crimson-Semibold.otf");
+  font-weight: 600;
+  font-style: normal;  
+}
 
+@font-face {
+  font-family: "Crimson";
+  src: url("Crimson-SemiboldItalic.otf");
+  font-weight: 600;
+  font-style: italic;  
+}
 
 /* Override WeasyPrint's default "monospace" */
-/*
-code { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-kbd { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-listing { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-plaintext { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-pre { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-samp { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-tt { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-xmp { font-family: "Anonymous Pro Minus", monospace; font-size: 9pt;}
-*/
+code { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
+kbd { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
+listing { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
+plaintext { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
+pre { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
+samp { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
+tt { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
+xmp { font-family: "Oxygen Mono", monospace; font-size: 9pt;}
 
 html {
 }
 
 body {
   size: letter portrait;
-  font-family: "Segoe UI", sans-serif;
-  font-size: 10pt;
-  line-height: 1.4;
-  color: #2a2a2a;
+  font-family: "Crimson", serif;
+  font-size: 11pt;
+  line-height: 1.3;
 }
 
 div.WordPageLayout {
@@ -220,25 +218,11 @@ p {
   margin-top: 5.5pt;
 }
 
-h1 {
-    font-family: "Segoe UI Light", "Segoe UI", sans-serif;
-    font-weight: 200;
-    font-size: 28pt;
-    color: #707070;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size: 12pt;
 }
-
-h2 {
-    font-family: "Segoe UI", sans-serif;
-    font-weight: normal;
-    font-size: 16pt;
-}
-
-h3 {
-    font-family: "Segoe UI", sans-serif;
-    font-weight: normal;
-    font-size: 14pt;
-}
-
 
 td {
   border-style: solid;
@@ -246,64 +230,26 @@ td {
   padding: 3pt;
 }
 
-
-ol  ol {
-	list-style: lower-alpha;
+ul#markdown-toc {
+  list-style-type: none;
+  padding-left: 0;  
+  display: block;
 }
 
-ol  ol  ol {
-	list-style: lower-roman;
+ul#markdown-toc ul {
+  padding-left: 0;
+  list-style-type: none;  
 }
 
-
-blockquote.note {
-	overflow: auto;
-	padding: 0;
-	position: relative;
-	margin: 0 0 1rem 0;
-	border: 1px solid #bbb;
-	padding-top: 30px;
-	padding-left: 1em;
-	box-sizing: border-box;
+.CoverPage {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  page-break-after: always;
 }
 
-blockquote.note:before {
-	content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACwElEQVQ4T43TW0gUURzH8e+MM+uuOrqmG+uahZFrSlhWdiGjiKIr1EtFgfXSQz1EEBFRPURFFEVQT0EFQTeph/ShyCjsClGpaW0FXaDL2q63ddfVdWd358TMahcI6sA8HGb+n/mdHzMSwJZa1+HCXHV7xXg119z/a3V80gfCQ8nT5x5375fMh/euLh2qKY453Hn/Gk3f74vC/Y+25PFbX1QL2LG42HDSI8mS+D8BCCYKWLt5qcMCDm6oSAS7owomIEaRv2ESSOaITGG+QyxcPjfLAtqvbIhUrpytKWo3GL0gokByJI1sDSDZQMoF2QUZHtqvNaVCCXvOL2BFtaaogREgBhiAAtLolQlSHsgFIJvAzT8BtSigJeJD/92B6CtJheI5vyVYOV9TMsNghEHoI1CGFX84obD/UhVfumTKS+DQpiTt1xt/T7AxUrlqiabYBsCIgIgDKQu5cK+E260uZnrHULdsJs2tn7jx6ANznG9FtfPjaIkbI8rYgJbUBxGGsI4v2STufV7As+81nNy2iGBUR8t20P41TCiqc6e5DUOII+kS62tSkizMulHtSdRMnWifg/OBXUxwu5kz1Ut2tp2qcU6afEGa3gShq5OecPyhBbRcnCGmL20Ba5devifVHGjdS7V3LK7iIsJ6ip2LvTS87KSxzU/eUIjuUCyQTnC1NqEVBpTSaR9+Au+eVnDKt4f8AjcZLg+d/cOcrZvO9RffaOrwow320juQvGsBr67VNctKzzy7vV8tLTOsj83XJnhurOGWr4xZsyvxevJYVVVkveBoQwevO96TMNIdmGc3Xl5Zf0yIrt32rBieEoPOb3Ymz1/IxUduGlpcTCsrxJmThYTg2Rs/W8c1pvx9Mc0E3EC5KU+ZmJ9zZt/cE1pWuFyIYh2Unz/EZf8iW288W3LbI2Kd54GeSBn9NXX1k34Af4cfLGGJsvcAAAAASUVORK5CYII=") " Note";
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100% !important;
-	background: #ededed;
-	font-weight: bold;
-	padding: 5px 0;
-	text-indent: 15px;
-	box-sizing: border-box;
-}
-
-blockquote.note:after {
-	box-sizing: border-box;
-}
-
-th {
-	border: 1px solid black;
-	background: #ededed;
-	padding-left: 0.2em; 
-	padding-right: 0.2em;
-	padding-bottom: 1px;
-}
-
-a {
-		text-decoration: none;
-		color: #00749e;
-}
-
-a:visited {
-		color: #03697a;
-
-}
-
-a:hover {
-		color: #06d;
+.CoverPage h1 {
+  font-size: 36pt;
 }
 
 /* Lots of hacks to avoid underlining every abbr in print */
@@ -312,19 +258,12 @@ a:hover {
 	:link abbr[title] { text-decoration: underline; }
 	del abbr[title] { text-decoration: line-through; }
 	ins abbr[title] { text-decoration: underline; }
-	.reversefootnote { display: none; }
-}
-
-@media screen {
-	body {
-		margin-left : 1in;
-		margin-right: 1in;
-	}
 }
 
 /* Highlight changes */
 del { background-color: #f08080; }
 ins { background-color: #90ee90; }
+
 
 /* End */ 
 
@@ -431,8 +370,8 @@ ins { background-color: #90ee90; }
     *,
     *:before,
     *:after {
-/*        background: transparent !important; */
-/*        color: #000 !important; */ /* Black prints faster:
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
@@ -444,7 +383,7 @@ ins { background-color: #90ee90; }
     }
 
     a[href]:after {
-/*        content: " (" attr(href) ")"; */
+        content: " (" attr(href) ")";
     }
 
     /*

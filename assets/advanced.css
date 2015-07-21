@@ -1,3 +1,6 @@
+@page {
+}
+
 @page :left { 
     @bottom-left { content: counter(page); }
 }
