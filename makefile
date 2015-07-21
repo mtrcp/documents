@@ -1,41 +1,24 @@
-# Generate PDFs from the Markdown source files
-#
-# In order to use this makefile, you need some tools:
-# - GNU make
-# - Pandoc
-# - LuaLaTeX
-# - DejaVu Sans fonts
+LANG=en_US.UTF-8 
+2 LC_ALL=en_US.UTF-8 
+3 
  
-# Directory containing source (Markdown) files
-source := docs
+4 .PHONY: docs deploy all clean 
+5 
  
-# Directory containing pdf files
-output := print
+6 all: deploy 
+7 
  
-# All markdown files in src/ are considered sources
-sources := $(wildcard $(source)/*.md)
+8 docs: 
+9 	$(MAKE) -C docs 
+10 	$(MAKE) -C assets 
+11 
  
-# Convert the list of source files (Markdown files in directory src/)
-# into a list of output files (PDFs in directory print/).
-objects := $(patsubst %.md,%.pdf,$(subst $(source),$(output),$(sources)))
+12 deploy: docs 
+13 	$(MAKE) -C docs deploy 
+14 	$(MAKE) -C assets deploy 
+15 
  
-all: $(objects)
- 
-# Recipe for converting a Markdown file into PDF using Pandoc
-$(output)/%.pdf: $(source)/%.md
-	pandoc \
-		--variable mainfont="DejaVu Sans" \
-		--variable monofont="DejaVu Sans Mono" \
-		--variable fontsize=11pt \
-		--variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm" \
-		--variable geometry:a4paper \
-		--table-of-contents \
-		--number-sections \
-		-f markdown  $< \
-		--latex-engine=lualatex \
-		-o $@
- 
-.PHONY : clean
- 
-clean:
-	rm -f $(output)/*.pdf
+16 clean: 
+17 	$(MAKE) -C docs clean  
+18 	$(MAKE) -C assets clean 
+19 	find output/ -mindepth 1 -maxdepth 1 -exec rm -r "{}" "+" 
