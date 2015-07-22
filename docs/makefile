@@ -11,14 +11,14 @@ MD = $(wildcard *.md)
 all: $(MD:.md=.pdf) $(MD:.md=.html)
 
 deploy:
-	cp -va *.pdf $(OUTPUT_DIR)
-#add back in @.html after .pdf
+	cp -va *.pdf *.html $(OUTPUT_DIR)
+
 
 %.pdf: %.html
 	weasyprint --base-url $(HTMLBASE) $< $@
 
-#%.html: %.md
-#	../utils/kram.rb -t $(TEMPLATE_DIR)/main -o $@ $^
+%.html: %.md
+	../utils/kram.rb -t $(TEMPLATE_DIR)/main -o $@ $^
 
 clean:
 	rm -f *.html *.pdf
