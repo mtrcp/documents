@@ -52,4 +52,3 @@ output_fh.write(html_doc)
 if close_output_fh
 	output_fh.close
 end
-
