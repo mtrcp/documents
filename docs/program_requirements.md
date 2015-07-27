@@ -92,7 +92,7 @@ All CAs in the Program must comply with the Program Technical Requirements. If M
 
 1. The CA may not issue new 1024-bit RSA certificates.
 
-1. All certificates issued from a root certificate must support the CRL distribution point extension.
+1. All end-entity server authentication certificates must contain an AIA extension with a valid OCSP URL. These certificates may also contain a CDP extension that contains a valid CRL URL. All other certificate types must contain either an AIA extension with an OCSP URL or a CDP extension with a valid CRL URL.
 
 1. Private Keys and subject names must be unique per root certificate; reuse of private keys or subject names in subsequent root certificates by the same CA may result in random certificate chaining issues. CAs must generate a new key and apply a new subject name when generating a new root certificate prior to distribution by Microsoft.
 
@@ -100,7 +100,7 @@ All CAs in the Program must comply with the Program Technical Requirements. If M
 
 1. Government CAs must restrict server authentication to .gov domains and may only issues other certificates to the ISO3166 country codes that the country has sovereign control over (see <http://aka.ms/auditreqs> section III for the definition of a "Government CA").
 
-1. Government CAs that also operate as commercial, non-profit, or other publicly-issuing entities must use a different root for all such certificate issuances (see <http://aka.ms/auditreqs> section III for the definition of a "Commercial CA").
+1. Deleted July 2015.
 
 1. Intermediate CA certificates must meet the requirements for algorithm type and key size for Subordinate CA certificates listed in Appendix A of the CAB Forum Baseline Requirements, which can be found at <https://www.cabforum.org>.
 
@@ -115,31 +115,79 @@ All CAs in the Program must comply with the Program Technical Requirements. If M
     > Please note: Microsoft will not require CAs to replace SHA1 Server Authentication certificates but will no longer trust SHA1 certificates after this date.
     {:.note}
 
-1. CAs must use separate CAs for each of the following: EV, OV, DV, and non-EV. CAs must also use the following industry OIDs in both the end-entity and sub-CAs: DV 2.23.149.1.2.1; OV 2.23.140.1.2.2; EV 2.23.140.1.2.3.
+1. CCAs must use  the following OIDs in the end-entity certificate: DV 2.23.140.1.2.1; OV 2.23.140.1.2.2; EV 2.23.140.1.1.; IV 2.23.140.1.2.3; EV Code Signing 2.23.140.1.3; Non-EV Code Signing 2.23.140.1.4.
 
 1. End-entity certificates that include a Basic Constraints extension in accordance with IETF RFC 5280 must have the cA field set to FALSE and the pathLenConstraint field must be absent.
 
 ### B. Key Requirements
  
-|Algorithm    |All Uses Except for Code Signing and Time Stamping|    Code Signing and Time Stamping Use|
-|--|--|--|
-|Digest Algorithms|SHA1 (may submit until January 1, 2016)<br>SHA2 (SHA256, SHA384, SHA512)|SHA1 (may submit until January 1, 2016)<br>SHA2 (SHA256, SHA384, SHA512)|
-|RSA|2048|4096 (New roots only)|
-|ECC / ECDSA|NIST P-256, P-384, P-521|No Requirement|
+<table class="telerik-reTable-4" border="1" cellpadding="0">
+            <thead>
+                <tr class="telerik-reTableHeaderRow-4">
+                    <td class="telerik-reTableHeaderFirstCol-4">
+                    <p style="text-align: center;">Algorithm </p>
+                    </td>
+                    <td class="telerik-reTableHeaderOddCol-4">
+                    <p style="text-align: center;">All Uses Except for Code Signing and Time Stamping </p>
+                    </td>
+                    <td class="telerik-reTableHeaderLastCol-4">
+                    <p style="text-align: center;">Code Signing and Time Stamping Use </p>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="telerik-reTableOddRow-4">
+                    <td class="telerik-reTableFirstCol-4">
+                    <p>Digest Algorithms</p>
+                    </td>
+                    <td class="telerik-reTableOddCol-4">
+                    <p>SHA1 (may submit until January 1, 2016) </p>
+                    <p>SHA2 (SHA256, SHA384, SHA512)</p>
+                    </td>
+                    <td class="telerik-reTableLastCol-4">
+                    <p>SHA1 (may submit until January 1, 2016) </p>
+                    <p>SHA2 (SHA256, SHA384, SHA512)</p>
+                    </td>
+                </tr>
+                <tr class="telerik-reTableEvenRow-4">
+                    <td class="telerik-reTableFirstCol-4">
+                    <p>RSA</p>
+                    </td>
+                    <td class="telerik-reTableOddCol-4">
+                    <p>2048</p>
+                    </td>
+                    <td class="telerik-reTableLastCol-4">
+                    <p>4096 (New roots only)</p>
+                    </td>
+                </tr>
+                <tr class="telerik-reTableOddRow-4">
+                    <td class="telerik-reTableFirstCol-4">
+                    <p>ECC / ECDSA</p>
+                    </td>
+                    <td class="telerik-reTableOddCol-4">
+                    <p>NIST P-256, P-384, P-521</p>
+                    </td>
+                    <td class="telerik-reTableLastCol-4">
+                    <p>NIST P-256, P-384, P-521</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
 
 ### C. Revocation Requirements
 
 1. The CA must have a documented revocation policy and must have the ability to revoke any certificate it issues.
 
-1. Online Certificate Status Protocol (OCSP) must be used to provide certificate revocation information for end entity certificates. The URL for the OCSP service must be specified in the Authority Information Access (AIA) extension.
+1. 2.Deleted July 2015.
 
 1. CAs that issue Server Authentication certificates must support the following OCSP responder requirements:
 
-    1. Minimum validity of 1 day; Maximum validity of 1 week; and
+    1. Minimum validity of 8 hours; Maximum validity of 2 days; and 
 
-    1. The next update must be available at an interval of 1/2 of the validity period. For example, if the maximum validity is 48 hours the next update must be available 24 hours before the current item expires.
+    1. The next update must be available at  least eight (8) hours before the current period expires. If the validity is more than 16 hours, then the next update must be available at ½ of the validity period.
 
-1. All certificates issued from a root certificate must support either the CRL distribution point must point extension or AIA containing an OCSP responder URL.
+1. All certificates issued from a root certificate must support either the CRL distribution point extension and/or AIA containing an OCSP responder URL.
 
 1. The CA must not use the root certificate to issue end-entity certificates.
 
@@ -214,6 +262,8 @@ Though not required by Microsoft, the following represents what Microsoft believ
 1. Because root certificates will be removed without regard to any unexpired end entity certificates issued from them, the CAs should plan to cease issuing end entity certificates for uses besides code signing such that those certificates expire according to these root removal guidelines.
 
 1. While Windows will not enforce specific policies on Secure Email certificates, Microsoft recommends that CAs start issuing new Secure Email certificates using the SHA-2 algorithm.
+
+1. Microsoft recommends an OCSP responder maximum validity period of one (1) day. 
 
 ## 6. Security Incident Response Requirements
 
@@ -323,5 +373,15 @@ In the event of a Security Incident, the CA must:
 
     1. Detailed description of how the issue was closed.
 
-1. If requested by Microsoft, a complete investigative and technical report of thhhe compromise.
+1. If requested by Microsoft, a complete investigative and technical report of the compromise.
+
+##6 See Also
+ <hr />
+<ul>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/31634.program-participants.aspx">Program Participants</a>
+</li><li><a href="http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx">Microsoft Root Certificate Program Main Page</a>
+</li></ul>
+<p>&nbsp;</p>
+<hr />
+
 
