@@ -13,7 +13,6 @@ all: $(MD:.md=.pdf) $(MD:.md=.html)
 deploy:
 	cp -va *.pdf *.html $(OUTPUT_DIR)
 
-
 %.pdf: %.html
 	weasyprint --base-url $(HTMLBASE) $< $@
 
